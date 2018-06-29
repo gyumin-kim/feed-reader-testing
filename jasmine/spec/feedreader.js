@@ -100,7 +100,7 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 prevfeed = document.getElementsByClassName('feed')[0].innerHTML;
-                loadFeed(1, done);
+                loadFeed(1, done);  // Load a new feed
             });
         });
 
@@ -110,6 +110,8 @@ $(function() {
          */
         it('changes the content', function() {
             let newFeed = document.getElementsByClassName('feed')[0].innerHTML;
+            // Compare the new feed and previous feed
+            // They should be different in order to pass.
             expect(newFeed).not.toEqual(prevfeed);
         });
     });
