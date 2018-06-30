@@ -13,14 +13,14 @@ $(function() {
         // allFeeds are defined and have at least 1 feed.
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds).toBeTruthy();  // toBeTruthy(): some.length !== 0
         });
 
         // allFeed has a URL defined and that the URL is not empty.
         it('has a URL defined and that the URL is not empty', function() {
             for (const feed of allFeeds) {
                 expect(feed.url).toBeDefined();
-                expect(feed.url.length).not.toBe(0);
+                expect(feed.url).toBeTruthy();  // toBeTruthy(): some.length !== 0
             };
         });
 
@@ -28,7 +28,7 @@ $(function() {
         it('has a name defined and that the name is not empty', function() {
             for (const feed of allFeeds) {
                 expect(feed.name).toBeDefined();
-                expect(feed.name.length).not.toBe(0);
+                expect(feed.name).toBeTruthy(); // toBeTruthy(): some.length !== 0
             };
         });
     });
