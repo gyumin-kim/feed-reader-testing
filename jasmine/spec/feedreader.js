@@ -54,7 +54,7 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
-
+        
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -70,8 +70,13 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('changes visibility when the menu icon is clicked', function() {
+            let menuIcon = document.body.querySelector('.header .menu-icon-link');
             let prevClass = document.body.className;
-            let newClass = document.body.click();
+            let newClass;
+
+            menuIcon.addEventListener('click', function() {
+                newClass = document.body.className;
+            });
             expect(prevClass).not.toBe(newClass);
         });
     });
@@ -89,7 +94,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('has at least a single .entry element within the .feed container', function() {
-            expect(document.getElementsByClassName('entry').length).toBeGreaterThan(0);
+            expect(document.querySelectorAll('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
