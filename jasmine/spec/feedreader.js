@@ -41,14 +41,15 @@ $(function() {
 
         // The menu changes visibility when the menu icon is clicked.
         it('changes visibility when the menu icon is clicked', function() {
-            let menuIcon = document.body.querySelector('.header .menu-icon-link');
-            let prevClass = document.body.className;
-            let newClass;
+            // Trigger a click
+            document.body.querySelector('.menu-icon-link').click();
+            // Check that body element does not have the 'menu-hidden' class
+            expect(document.body.className).not.toContain('menu-hidden');
 
-            menuIcon.addEventListener('click', function() {
-                newClass = document.body.className;
-            });
-            expect(prevClass).not.toBe(newClass);
+            // Trigger a click
+            document.body.querySelector('.menu-icon-link').click();
+            // Check that body element has the 'menu-hidden' class
+            expect(document.body.className).toContain('menu-hidden');
         });
     });
 
